@@ -1,4 +1,4 @@
-function getComputerChoice() {
+/*function getComputerChoice() {
     let computerSelection = Math.floor((Math.random() * 3) + 1);
     if (computerSelection == 1) {
         return 'Rock'
@@ -9,11 +9,11 @@ function getComputerChoice() {
     }
     return computerSelection;
 }    
-let computerSelection = getComputerChoice();
+let computerSelection = getComputerChoice();*/
 
 
-let getPlayerChoice = prompt("Rock, Paper, or Scissors?")
-let playerSelection = getPlayerChoice.charAt(0).toUpperCase() + getPlayerChoice.slice(1).toLowerCase();
+/*let getPlayerChoice = prompt("Rock, Paper, or Scissors?")
+let playerSelection = getPlayerChoice.charAt(0).toUpperCase() + getPlayerChoice.slice(1).toLowerCase();*/
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
@@ -33,4 +33,26 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+    for(let i = 0; i < 5; i++) {
+        let getPlayerChoice = prompt("Rock, Paper, or Scissors?")
+        let playerSelection = getPlayerChoice.charAt(0).toUpperCase() + getPlayerChoice.slice(1).toLowerCase();
+
+        function getComputerChoice() {
+            let computerSelection = Math.floor((Math.random() * 3) + 1);
+            if (computerSelection == 1) {
+                return 'Rock'
+            } else if (computerSelection == 2) {
+                return 'Paper'
+            } else {
+                return 'Scissors'
+            }
+            return computerSelection;
+        }    
+        let computerSelection = getComputerChoice();
+
+        playRound(playerSelection, computerSelection);
+        console.log(playRound(playerSelection, computerSelection));
+    }
+}
+game();
