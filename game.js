@@ -48,6 +48,14 @@ function game() {
         console.log(playRound());
         console.log("The score is currently " + playerScore + " - " + computerScore)
     }
+
+    if (playerScore > computerScore) {
+        console.log("Victory! Final Score: " + playerScore + " - " + computerScore);
+    } else if (playerScore < computerScore) {
+        console.log("Defeat! Final Score: " + playerScore + " - " + computerScore);
+    } else {
+        console.log("It's a draw! Final Score: " + playerScore + " - " + computerScore);
+    }
 }
 
 game();
