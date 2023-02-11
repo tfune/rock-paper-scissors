@@ -1,9 +1,19 @@
 let playerScore = 0;
 let computerScore = 0;
+let playerSelection;
+let computerSelection;
 
-function getPlayerChoice(playerSelection) {
-    playerSelection = prompt('Rock, Paper, or Scissors?');
-    return playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
+const buttons = document.querySelectorAll(".button");
+buttons.forEach(button => {
+    button.addEventListener('click', function (e) {
+        playerSelection = e.target.id;
+        computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection, computerSelection));
+    });
+});
+
+function getPlayerChoice(e) {
+    return e.target.id;
 }
 
 function getComputerChoice(computerSelection) {
@@ -18,8 +28,8 @@ function getComputerChoice(computerSelection) {
 }    
 
 function playRound(playerSelection, computerSelection) {
-    playerSelection = getPlayerChoice();
-    computerSelection = getComputerChoice();
+    //playerSelection = buttons.forEach(button => button.addEventListener('click', getPlayerChoice));
+    //computerSelection = getComputerChoice();
     if (playerSelection === computerSelection) {
         return "You tied!"
     } else if (playerSelection == 'Rock' && computerSelection == 'Scissors') {
@@ -41,9 +51,10 @@ function playRound(playerSelection, computerSelection) {
         computerScore++;
         return "You lose! Rock beats Scissors"
     }
+    console.log(playerSelection);
 }
 
-function game() {
+/*function game() {
     for(let i = 0; i < 5; i++) {
         console.log(playRound());
         console.log("The score is currently " + playerScore + " - " + computerScore)
@@ -58,4 +69,4 @@ function game() {
     }
 }
 
-game();
+game();*/
