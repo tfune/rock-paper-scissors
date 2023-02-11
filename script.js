@@ -28,7 +28,11 @@ function getComputerChoice(computerSelection) {
 }    
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection === computerSelection) {
+    if (playerScore >= 5 || computerScore >= 5) {
+        playerScore = 0;
+        computerScore = 0;
+        return;
+    } else if (playerSelection === computerSelection) {
         return "You tied!"
     } else if (playerSelection == 'Rock' && computerSelection == 'Scissors') {
         playerScore++;
@@ -60,7 +64,15 @@ function displayResults () {
 const score = document.querySelector('.score');
 
 function displayScore () {
-    score.textContent = 'The score is currently ' + playerScore + ' - ' + computerScore;
+    if (playerScore < 5 && computerScore < 5) {
+        score.textContent = 'The score is currently ' + playerScore + ' - ' + computerScore;
+    } else if (playerScore >= 5 && computerScore >= 5) {
+        return;
+    } else if (playerScore == 5) {
+        score.textContent = 'Victory! Final Score: ' + playerScore + ' - ' + computerScore;
+    } else if (computerScore == 5) {
+        score.textContent = 'Defeat! Final Score: ' + playerScore + ' - ' + computerScore;
+    }
 }
 
 /*function game() {
