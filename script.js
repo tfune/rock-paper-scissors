@@ -4,16 +4,16 @@ let playerSelection;
 let computerSelection;
 
 const buttons = document.querySelectorAll(".button");
+
 buttons.forEach(button => {
-    button.addEventListener('click', function (e) {
-        playerSelection = e.target.id;
-        computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection));
-    });
+    button.addEventListener('click', playGame);
 });
 
-function getPlayerChoice(e) {
-    return e.target.id;
+function playGame (e) {
+    playerSelection = e.target.id;
+    computerSelection = getComputerChoice();
+    displayResults();
+    displayScore();
 }
 
 function getComputerChoice(computerSelection) {
@@ -28,8 +28,6 @@ function getComputerChoice(computerSelection) {
 }    
 
 function playRound(playerSelection, computerSelection) {
-    //playerSelection = buttons.forEach(button => button.addEventListener('click', getPlayerChoice));
-    //computerSelection = getComputerChoice();
     if (playerSelection === computerSelection) {
         return "You tied!"
     } else if (playerSelection == 'Rock' && computerSelection == 'Scissors') {
@@ -51,7 +49,18 @@ function playRound(playerSelection, computerSelection) {
         computerScore++;
         return "You lose! Rock beats Scissors"
     }
-    console.log(playerSelection);
+}
+
+const roundResults = document.querySelector('.roundResults');
+
+function displayResults () {
+    roundResults.textContent = playRound(playerSelection, computerSelection);
+};
+
+const score = document.querySelector('.score');
+
+function displayScore () {
+    score.textContent = 'The score is currently ' + playerScore + ' - ' + computerScore;
 }
 
 /*function game() {
