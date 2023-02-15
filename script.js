@@ -74,20 +74,3 @@ function displayScore () {
         score.textContent = 'Defeat! Final Score: ' + playerScore + ' - ' + computerScore;
     }
 }
-
-/*function game() {
-    for(let i = 0; i < 5; i++) {
-        console.log(playRound());
-        console.log("The score is currently " + playerScore + " - " + computerScore)
-    }
-
-    if (playerScore > computerScore) {
-        console.log("Victory! Final Score: " + playerScore + " - " + computerScore);
-    } else if (playerScore < computerScore) {
-        console.log("Defeat! Final Score: " + playerScore + " - " + computerScore);
-    } else {
-        console.log("It's a draw! Final Score: " + playerScore + " - " + computerScore);
-    }
-}
-
-game();*/
